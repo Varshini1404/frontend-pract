@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Form</title>
+</head>
+<body>
+
+    <h2>ID Card Form</h2>
+
+    <form id="idCardForm">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Name" required><br><br>
+
+        <label>Roll No:</label>
+        <input type="text" name="roll" placeholder="Roll number" required><br><br>
+        
+        <label>Department:</label>
+        <select id="department" name="department" required>
+            <option value="">-- Select --</option>
+            <option value="CSE">CSE</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="IT">IT</option>
+        </select><br><br>
+ 
+        <label>Branch:</label>
+        <input type="text" name="branch" placeholder="Branch" required><br><br>
+
+        <label>D.O.B:</label>
+        <input type="date" name="dob" required><br><br>
+
+        <label>Blood Group:</label>
+        <input type="radio" name="blood" value="B+"> B+
+        <input type="radio" name="blood" value="B"> B
+        <input type="radio" name="blood" value="O+"> O+
+        <input type="radio" name="blood" value="AB+"> AB+
+        <input type="radio" name="blood" value="AB-"> AB-
+        <input type="radio" name="blood" value="A+"> A+<br><br>
+
+        <label>Phone No:</label>
+        <input type="text" name="phone" placeholder="Phone No" required><br><br>
+
+        <label>Address:</label>
+        <textarea name="address" placeholder="Address" rows="5" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>Your ID Card</h2>
+    <div id="displaySection">
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Roll No:</strong> <span id="displayRoll"></span></p>
+        <p><strong>Department:</strong> <span id="displayDept"></span></p>
+        <p><strong>Branch:</strong> <span id="displayBranch"></span></p>
+        <p><strong>D.O.B:</strong> <span id="displayDob"></span></p>
+        <p><strong>Blood Group:</strong> <span id="displayBlood"></span></p>
+        <p><strong>Phone No:</strong> <span id="displayPhone"></span></p>
+        <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+    </div>
+
+    <script>
+        document.getElementById("idCardForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const name = form.name.value;
+            const roll = form.roll.value;
+            const dept = form.department.value;
+            const branch = form.branch.value;
+            const dob = form.dob.value;
+            const phone = form.phone.value;
+            const address = form.address.value;
+            const blood = form.blood.value;
+
+            document.getElementById("displayName").textContent = name;
+            document.getElementById("displayRoll").textContent = roll;
+            document.getElementById("displayDept").textContent = dept;
+            document.getElementById("displayBranch").textContent = branch;
+            document.getElementById("displayDob").textContent = dob;
+            document.getElementById("displayBlood").textContent = blood;
+            document.getElementById("displayPhone").textContent = phone;
+            document.getElementById("displayAddress").textContent = address;
+        };
+    </script>
+
+</body>
+</html>
